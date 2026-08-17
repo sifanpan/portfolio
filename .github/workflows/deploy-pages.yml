@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    # 默认分支是 v2.1；main 保留以便旧链接仍可触发部署
+    branches: [v2.1, main, master]
   workflow_dispatch:
 
 permissions:
