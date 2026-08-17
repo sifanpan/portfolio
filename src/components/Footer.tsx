@@ -16,7 +16,7 @@ export function Footer({ minimal = false, showNav = true, className, style }: Pr
       style={style}
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-ink-muted">© {new Date().getFullYear()} Sifan Pan · sifan.pan.v2</p>
+        <p className="text-sm text-ink-muted">© {new Date().getFullYear()} Sifan Pan · sifan.portfolio</p>
         {showNav ? (
           <p className="text-sm text-ink-muted">
             <a href="#playground" className="hover:text-ink">

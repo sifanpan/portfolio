@@ -28,12 +28,8 @@ jobs:
 
       - name: Install & build
         run: |
-          REPO_NAME="${{ github.event.repository.name }}"
-          if [[ "$REPO_NAME" == *.github.io ]]; then
-            export BASE_PATH=/
-          else
-            export BASE_PATH="/$REPO_NAME/"
-          fi
+          # Custom domain www.sifan.portfolio — assets served from site root
+          export BASE_PATH=/
           npm ci
           npm run build
 
