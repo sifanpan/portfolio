@@ -1,5 +1,6 @@
 import { useMemo, useState, type CSSProperties } from 'react'
 import type { PlaygroundItem } from '../data/playground'
+import { publicUrl } from '../publicUrl'
 import { ClaimMedalDemo } from './playground/ClaimMedalDemo'
 
 type Props = {
@@ -51,7 +52,8 @@ export function PlaygroundCard({ item }: Props) {
     )
   }
 
-  const cover = item.cover!.startsWith('/') ? item.cover : `/${item.cover}`
+  // 必须走 publicUrl：Pages 部署在 /sifan.pan.v2/ 子路径下，写死的 /portfolio/… 会 404
+  const cover = publicUrl(item.cover!)
 
   const tile = (
     <article

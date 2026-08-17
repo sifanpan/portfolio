@@ -13,6 +13,13 @@ export type PlaygroundItem = {
 /** 按展示顺序排列；封面条目尺寸由 cover 宽高比自动推导 */
 export const playgroundItems: PlaygroundItem[] = [
   {
+    id: 'cove-watch',
+    title: 'Cove Watch — Comfort Field',
+    cover: 'portfolio/cove-watch/cover.png',
+    // 可交互整机模拟器：外形工作室 / 3D 白膜 / 正视预览 / 整机交互
+    href: 'https://446500261psf.github.io/portfolio/simulator/',
+  },
+  {
     id: 'claim-medal',
     title: 'Claim Medal',
     demo: 'claim-medal',
