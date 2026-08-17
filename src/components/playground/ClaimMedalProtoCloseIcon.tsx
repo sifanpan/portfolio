@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-/** Figma 652:6 — 原型装饰用关闭按钮（不可点击） */
+/** Figma 652:6 — decorative prototype close button (non-interactive) */
 export function ClaimMedalProtoCloseIcon() {
   const filterId = useId().replace(/:/g, '')
 

@@ -34,7 +34,7 @@
   --open-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --open-duration: 480ms;
 
-  /* Sleep Pop-up hero — 01 Video.mov（约为放大版的一半） */
+  /* Sleep Pop-up hero — 01 Video.mov (roughly half the enlarged version) */
   --exposure-hero-media-width: min(92vw, 8.5rem);
 }
 

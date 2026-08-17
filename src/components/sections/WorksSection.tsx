@@ -2,7 +2,7 @@ import { ProjectCard } from '../ProjectCard'
 import { SectionHeading } from '../SectionHeading'
 import { projects } from '../../data/projects'
 
-/** 完整站点（cinematic）用的 Works 列表 */
+/** Works list for full-site (cinematic) variant */
 export function WorksSection() {
   return (
     <section

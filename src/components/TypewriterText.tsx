@@ -7,9 +7,9 @@ const PUNCT_PAUSE_MS = 140
 
 export type TypewriterSegment = {
   text: string
-  /** 开始本段前的停顿（如 you 后的 2 秒） */
+  /** pause before this segment (e.g. 2s after "you") */
   pauseBefore?: number
-  /** 接在上一行末尾，不换行（如 :)） */
+  /** continue on same line as previous (e.g. ":)") */
   joinPrevious?: boolean
 }
 
@@ -22,12 +22,12 @@ type Props = {
   segments: TypewriterSegment[]
   className?: string
   onComplete?: () => void
-  /** 背景变黑时保留、不隐去的文字 */
+  /** text kept visible when background turns black */
   keepText?: string
-  /** 第一行中 keepText 之前的固定前缀（避免打字时 DOM 突变） */
+  /** fixed prefix before keepText on line 1 (avoids DOM churn while typing) */
   keepPrefix?: string
   hideCursor?: boolean
-  /** 拉开 → 两侧渐隐 */
+  /** pull apart → fade sides */
   pullKeep?: boolean
 }
 

@@ -1,14 +1,14 @@
-Project 3 — Feature Guidance System
+Product Education & Adoption
 
-文件夹：
+Folders:
 
-  Bento图/     Banner 封面（Bento 网格展示）
-  长图/         点击 Banner 后在 iPhone mockup 内滚动展示
+  bento-banners/   banner covers (Bento grid display)
+  long-scrolls/    long images shown on banner click inside iPhone mockup
 
-命名规则：
-  Banner X.png  ↔  长图 X.png
-  banner X.png  ↔  长图 X.png
-  无长图 / VIP.png / 复活节勋章.png  → 无长图，不可点击
+Naming:
+  Banner X.png  ↔  long-scroll X.png
+  banner X.png  ↔  long-scroll X.png
+  entries without a long-scroll / VIP.png / easter-medal.png → banner only, not clickable
 
-配置：src/data/workShowcase.ts → educationBentoItems()
-长图路径由 bannerToLongImage() 按文件名自动匹配
+Config: src/data/workShowcase.ts → educationBentoItems()
+Long-scroll paths matched from banner filenames via bannerToLongImage()

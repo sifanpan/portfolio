@@ -3,13 +3,13 @@ import { publicUrl } from '../../publicUrl'
 import { ClaimMedalPhoneShell } from './ClaimMedalPhoneShell'
 import { MedalReliefCanvas, type MedalReliefHandle } from './MedalReliefCanvas'
 
-/** Figma 652:5 — 灰浮雕（与 #f4f4f4 背景融合） */
+/** Figma 652:5 — gray relief (blends with #f4f4f4 background) */
 const RELIEF = '/playground/medal/relief-figma-652-5.png'
-/** Figma 652:28 — 彩色勋章（透明底圆形） */
+/** Figma 652:28 — full-color medal (transparent circular base) */
 const MEDAL_COLOR = '/playground/medal/medal-color-figma-v2.png'
 const BG_PORTRAIT = '/playground/medal/background-cycling-wild-portrait.png'
 
-/** Figma 652:44 — 三屏并排：擦除 / 可点按钮 / 展示 */
+/** Figma 652:44 — three screens side by side: erase / tappable button / reveal */
 export function ClaimMedalMockupBoard() {
   const reliefRef = useRef<MedalReliefHandle>(null)
 

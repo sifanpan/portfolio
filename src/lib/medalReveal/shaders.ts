@@ -51,7 +51,7 @@ void main() {
   vec3 halfDir = normalize(lightDir + viewDir);
   float spec = pow(max(dot(nmap, halfDir), 0.0), 48.0);
 
-  // 揭示层：彩色 base + 动态金属光（雕版由 DOM 层 relief-base.png 承担）
+  // reveal layer: color base + dynamic metal sheen (engraving handled by DOM relief-base.png)
   vec3 metal = base * (0.22 + diff * 0.78) + vec3(spec * 0.95);
 
   float revealMix = smoothstep(0.02, 0.22, reveal);
@@ -67,7 +67,7 @@ void main() {
 }
 `
 
-/** 单色浅浮雕 + 橡皮擦揭示 base（样式 v1 → relief-style-v1/） */
+/** monochrome relief + eraser reveal base (style v1 → relief-style-v1/) */
 export const RELIEF_ERASE_FRAG = `#version 300 es
 precision highp float;
 
@@ -123,14 +123,14 @@ void main() {
   float reveal = texture(uReveal, muv).r;
   float revealMix = reveal > 0.055 ? smoothstep(0.10, 0.92, reveal) : 0.0;
 
-  // flow 第一屏：灰浮雕由 DOM underlay 承担，WebGL 只按擦除蒙版叠彩色勋章
+  // flow screen 1: gray relief via DOM underlay; WebGL only stacks color medal by erase mask
   if (uFlowUnderlay > 0.5) {
     vec3 base = texture(uBase, muv).rgb;
     outColor = vec4(base, alpha * revealMix);
     return;
   }
 
-  // 高度场 → 柔和体积法线（渐变，非线稿）
+  // height field → soft volumetric normals (gradient, not line art)
   float spread = 3.0;
   float hL = texture(uHeight, muv - vec2(uTexel.x * spread, 0.0)).r;
   float hR = texture(uHeight, muv + vec2(uTexel.x * spread, 0.0)).r;

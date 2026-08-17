@@ -1,4 +1,4 @@
-/* 临时验证脚本:截图 Playground tab(验证完可删) */
+/* Temporary verification script: screenshot Playground tab (delete after validation) */
 import { chromium } from 'playwright'
 
 const base = process.env.SHOT_URL ?? 'http://localhost:5175/'
@@ -17,7 +17,7 @@ await page.waitForTimeout(1500)
 
 await page.screenshot({ path: 'scripts/shots/pg-bento.png', fullPage: true })
 
-// turntable:滚动内部 scroller 验证旋转 scrub
+// turntable: scroll inner scroller to verify rotation scrub
 await page.locator('.pg-turn-stage').scrollIntoViewIfNeeded()
 await page.waitForTimeout(800)
 await page.locator('.pg-tile-full').screenshot({ path: 'scripts/shots/pg-turn-0.png' })

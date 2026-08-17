@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master]
+    # Default branch is v2.1; main kept so legacy links still trigger deploy
+    branches: [v2.1, main, master]
   workflow_dispatch:
 
 permissions:

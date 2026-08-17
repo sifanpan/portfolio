@@ -1,19 +1,18 @@
-Scroll Turntable 序列帧素材
-===========================
+Scroll Turntable sequence frames
 
-用 AI(或 Blender 等)生成一组物体/人物的 360° 转台序列帧后:
+After generating a 360° turntable sequence (AI, Blender, etc.):
 
-1. 帧命名为 frame-001.webp、frame-002.webp …(三位数,从 001 开始),放在本目录。
-   - 推荐 60~120 帧,帧越多越顺滑
-   - 推荐 webp 格式、宽度 1200px 左右,控制总体积
-   - 所有帧必须同一尺寸、同一机位,只有物体角度变化(每帧旋转 360°/帧数)
+1. Name frames frame-001.webp, frame-002.webp … (three digits, starting at 001) in this directory.
+   - Recommend 60–120 frames; more frames = smoother scrub
+   - Recommend webp, ~1200px wide, to control total size
+   - All frames same size and camera; only object rotation changes (360° / frame count per step)
 
-2. 打开 src/components/playground/TurntableDemo.tsx,
-   把顶部的 FRAME_COUNT 从 0 改成实际帧数(例如 60)。
+2. Open src/components/playground/TurntableDemo.tsx
+   and change FRAME_COUNT at the top from 0 to the actual count (e.g. 60).
 
-完成后卡片会自动从程序化点云球切换为真实序列帧,滚动即可 scrub 旋转。
+The card will switch from procedural point-cloud sphere to real sequence frames; scroll to scrub rotation.
 
-AI 生成转台帧的思路:
-- 先生成一张物体的定妆图(正面)
-- 用图生视频模型(Kling / Runway / Veo 等)提示 "camera orbits 360 degrees around the object, fixed framing, seamless loop"
-- 再用 ffmpeg 拆帧:ffmpeg -i turntable.mp4 -vf "fps=N/时长" frame-%03d.webp
+AI turntable workflow:
+- Generate a front-facing hero still of the object
+- Use image-to-video (Kling / Runway / Veo, etc.) with prompt: "camera orbits 360 degrees around the object, fixed framing, seamless loop"
+- Extract frames with ffmpeg: ffmpeg -i turntable.mp4 -vf "fps=N/duration" frame-%03d.webp

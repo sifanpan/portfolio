@@ -1,8 +1,8 @@
 type Props = {
   text: string
-  /** 全局起始延迟（秒） */
+  /** global start delay (seconds) */
   baseDelay?: number
-  /** 接在前一段文字之后的字母序号偏移，用于连续 stagger */
+  /** letter index offset after prior text, for continuous stagger */
   letterOffset?: number
   className?: string
 }

@@ -1,15 +1,15 @@
-Hand Phone Scroll — 活动长图 / 录屏
+Hand Phone Scroll — campaign long-scroll / screen recording
 
-当前文件：
+Current files:
 
-  phone mockup for scroll.png  手拿手机 mockup 叠层（1736×2927，屏幕已透明）
-  New VIP Page.mov        VIP 页面录屏（源文件，现网用 new-vip-page.mp4）
-  new device page.mov     Device 页面录屏（源文件，现网用 new-device-page.mp4）
-  new-vip-page.mp4        现网部署 — VIP 页面录屏
-  new-device-page.mp4     现网部署 — Device 页面录屏
-  01.png                       备用长图
-  frame new.png                蒙版源（备用）
+  phone mockup for scroll.png  hand-phone mockup overlay (1736×2927, transparent screen)
+  New VIP Page.mov        VIP page screen recording (source; production uses new-vip-page.mp4)
+  new device page.mov     Device page screen recording (source; production uses new-device-page.mp4)
+  new-vip-page.mp4        production deploy — VIP page screen recording
+  new-device-page.mp4     production deploy — Device page screen recording
+  01.png                       fallback long image
+  frame new.png                mask source (fallback)
 
-布局：视频在下层，mockup 叠在上层；屏幕内容区 229,36 + 841×1774 px。
+Layout: video on bottom layer, mockup overlay on top; screen content area 229,36 + 841×1774 px.
 
-追加素材时在 src/data/workShowcase.ts 的 handPhoneScreens 中增加条目。
+Add entries in src/data/workShowcase.ts → handPhoneScreens when appending assets.

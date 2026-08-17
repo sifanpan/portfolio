@@ -5,7 +5,7 @@ type Props = {
   src?: string
   alt: string
   rev?: string
-  /** 活动长图：在屏幕视窗内纵向滚动 */
+  /** campaign long image: vertical scroll inside screen viewport */
   scroll?: boolean
 }
 

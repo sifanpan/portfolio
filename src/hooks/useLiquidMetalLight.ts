@@ -1,7 +1,7 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import { applyLiquidMetalVars, edgeGlowFromPointer } from '../lib/liquidMetalLight'
 
-/** 悬停时追踪指针;移开后 prox 渐回 0 */
+/** track pointer on hover; prox eases back to 0 on leave */
 export function useLiquidMetalLight(
   surfaceRef: RefObject<HTMLElement | null>,
   active: boolean,

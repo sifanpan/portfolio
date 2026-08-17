@@ -9,9 +9,9 @@ const nav = [
 ] as const
 
 type Props = {
-  /** 页眉居中 sifan，与开场展开字距一致 */
+  /** centered header sifan, letter-spacing matches hero expand */
   brandHero?: boolean
-  /** undefined = 正常显示，false = 待瞬移，true = 逐字向下瞬移出现 */
+  /** undefined = normal; false = pending drop; true = letters drop in one by one */
   brandReveal?: boolean
   showNav?: boolean
   className?: string

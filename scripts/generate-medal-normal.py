@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 base color 图生成 height + normal map（支持 RGBA 透明底）。"""
+"""Generate height + normal maps from base color image (supports RGBA transparency)."""
 
 from __future__ import annotations
 
@@ -69,7 +69,7 @@ def process_base(base_path: Path, out_dir: Path | None = None) -> None:
 
 
 def bake_relief_base(base_rgba: np.ndarray, normal_rgba: np.ndarray) -> np.ndarray:
-    """固定左上光，把 normal 烘焙成石膏浮雕底图。"""
+    """Fixed top-left light; bake normal into plaster relief base."""
     alpha = np.maximum(base_rgba[..., 3], normal_rgba[..., 3]) / 255.0
     nmap = normal_rgba[..., :3] / 255.0 * 2.0 - 1.0
     nmap[..., 2] = np.maximum(nmap[..., 2], 0.35)

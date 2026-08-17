@@ -8,9 +8,9 @@ type Props = {
   src?: string
   alt: string
   rev?: string
-  /** 活动长图：在浏览器视窗内纵向滚动 */
+  /** campaign long image: vertical scroll inside browser viewport */
   scroll?: boolean
-  /** 地址栏显示的 URL,缺省由 alt 生成 */
+  /** address bar URL; defaults from alt */
   pageUrl?: string
 }
 

@@ -1,4 +1,4 @@
-/** public/ 资源在 GitHub Pages 子路径部署时须带 Vite `base` */
+/** public/ assets must include Vite `base` on GitHub Pages subpath deploys */
 export function publicUrl(path: string): string {
   const p = path
     .replace(/^\//, '')

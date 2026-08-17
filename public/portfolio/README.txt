@@ -1,33 +1,32 @@
-sifan.pan.v2 — 图片放置说明
-====================================
+sifan.pan.v2 — asset placement guide
 
-把素材放进对应子文件夹即可，放好后在对话里 @ 我或说一声，我会帮你整理命名、接入页面。
+Drop assets into the matching subfolders. When ready, @ me in chat or say so — I can help rename and wire them into the site.
 
-## 三个主案例（首页卡片 / 后续详情页）
+## Three main cases (home cards / future detail pages)
 
-  public/portfolio/project-1/   Monetization & Conversion（变现与转化）
-  public/portfolio/project-2/   User Growth & Engagement（增长与活跃）
-  public/portfolio/project-3/   Product Education & Adoption（功能教育）
+  public/portfolio/project-1/   Monetization & Conversion
+  public/portfolio/project-2/   User Growth & Engagement
+  public/portfolio/project-3/   Product Education & Adoption
 
-每个项目文件夹推荐结构：
+Recommended structure per project folder:
 
-  cover.png     列表/封面用主图（必需）
-  01.png        案例步骤 1
-  02.png        案例步骤 2
-  03.png        案例步骤 3
-  04.png        案例步骤 4（可选）
-  05.png        案例步骤 5（可选）
+  cover.png     list/cover hero (required)
+  01.png        case step 1
+  02.png        case step 2
+  03.png        case step 3
+  04.png        case step 4 (optional)
+  05.png        case step 5 (optional)
 
-格式：png / jpg / webp 均可（同一项目内扩展名保持一致即可）。
+Formats: png / jpg / webp (keep extensions consistent within a project).
 
-## 全站其它素材（可选）
+## Other site assets (optional)
 
-  public/portfolio/hero/        首页头图、头像、背景
-  public/portfolio/about/       About 区配图
-  public/portfolio/exports/     从 Figma 整屏导出的长图条带（若沿用 v1 长卷轴方案）
-  public/portfolio/figma/       交互组件用切图（轮播、昼夜切换等）
+  public/portfolio/hero/        home hero, avatar, backgrounds
+  public/portfolio/about/       About section imagery
+  public/portfolio/exports/     full-width Figma export strips (if using v1 scroll layout)
+  public/portfolio/figma/       interactive component slices (carousels, day/night toggles, etc.)
 
-## 命名小贴士
+## Naming tips
 
-- 从 Figma 导出时尽量保留清晰文件名，我会统一改成 cover / 01 / 02…
-- 不确定放哪张时，先丢进对应 project-N/，备注「这是第几步」即可
+- Keep clear names when exporting from Figma; I will normalize to cover / 01 / 02…
+- If unsure where a file goes, drop it in the matching project-N/ and note which step it is

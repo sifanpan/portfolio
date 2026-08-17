@@ -1,12 +1,11 @@
-Playground — 封面图目录
-========================
+Playground — cover image directory
 
-把封面图放到这个目录,然后在 src/data/playground.ts 里添加条目:
+Put cover images here, then add an entry in src/data/playground.ts:
 
   {
     id: 'my-piece',
     title: 'My Piece',
-    cover: 'playground/images/my-piece.webp',
-  },
+    cover: 'playground/images/my-piece.png',
+  }
 
-tile 宽高比会自动跟随封面图;宽图占更多列,行与行之间允许留白,不必密铺。
+Tile aspect ratio follows the cover automatically; wide images span more columns. Rows may leave whitespace — tiles do not need to pack tightly.

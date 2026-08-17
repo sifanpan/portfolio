@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { TypewriterText } from './TypewriterText'
 
-/** : ) 出现后停顿，再开始渐隐 */
+/** pause after ": )" appears, then start fade */
 const PAUSE_BEFORE_FADE_MS = 1_000
-/** 其他文字纯透明度渐隐（1.5s），与 index.css --typing-other-fade 一致 */
+/** other text opacity fade (1.5s), matches index.css --typing-other-fade */
 const OTHER_FADE_MS = 1_500
-/** sifan 拉开 + 两侧渐隐（3s），与 index.css --typing-pull-fade 一致 */
+/** sifan pull-apart + side fade (3s), matches index.css --typing-pull-fade */
 const PULL_FADE_DURATION_MS = 3_000
 
 const KEEP_TEXT = 'sifan'
