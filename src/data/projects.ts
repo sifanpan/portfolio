@@ -5,7 +5,7 @@ export type Project = {
   title: string
   summary: string
   tags: string[]
-  /** 案例详情页或外链，后续可接路由 */
+  /** case detail page or external link; can wire to routing later */
   href?: string
 }
 

@@ -1,13 +1,13 @@
 /**
- * 浮雕勋章样式 v1（已冻结）
- * 快照目录：public/playground/medal/relief-style-v1/
- * Claim Medal demo 使用此配置，请勿随意改动；迭代请新建 v2。
+ * Relief medal style v1 (frozen)
+ * Snapshot dir: public/playground/medal/relief-style-v1/
+ * Claim Medal demo uses this config — do not change casually; iterate as v2.
  */
 export const RELIEF_STYLE_V1 = {
   version: 'v1',
   snapshotDir: 'public/playground/medal/relief-style-v1',
 
-  /** 与卡片背景严格同色 */
+  /** exact match to card background */
   background: '#f2f2ee',
 
   relief: {

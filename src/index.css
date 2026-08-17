@@ -99,12 +99,12 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
 }
 
-/* 首页 — Open 式简洁圆角卡片布局 */
+/* Home — Open-style rounded card layout */
 .home-open {
   background: var(--open-canvas);
 }
 
-/* 开场结束后主页自上而下渐现 */
+/* Home content fades in top-to-bottom after intro */
 .home-sequential-reveal,
 .home-sequential-pending {
   --home-reveal-duration: 0.9s;
@@ -140,7 +140,7 @@ body {
   padding: 5.5rem 1.25rem 2.5rem;
 }
 
-/* 首页标签 — 纯边缘高光按钮,鼠标环绕时折射变化 */
+/* Home tabs — edge-highlight pills, refraction follows mouse */
 .home-tabs {
   position: relative;
   display: flex;
@@ -167,7 +167,7 @@ body {
   --lg-inner-beam: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 0%, transparent 100%);
 }
 
-/* 内侧 — 峰值→中心 radial 在最上层,中心 vignette 在底 */
+/* Inner — peak→center radial on top, center vignette below */
 .home-tab-edge-inner {
   position: absolute;
   inset: 2px;
@@ -204,7 +204,7 @@ body {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.38);
 }
 
-/* 外侧 — 切线椭圆光斑贴在鼠标边缘点,中心最亮 */
+/* Outer — tangent ellipse spot at mouse edge, brightest at center */
 .home-tab-edge-rim {
   position: absolute;
   inset: 0;
@@ -231,7 +231,7 @@ body {
   background-repeat: no-repeat;
 }
 
-/* 滑动高光圈 — 随 tab 切换 */
+/* Sliding highlight ring — follows tab switch */
 .home-tabs-indicator {
   position: absolute;
   top: 0.125rem;
@@ -319,7 +319,7 @@ body {
   padding: 1.5rem;
 }
 
-/* Work 多项目列表 */
+/* Work multi-project list */
 .work-showcases {
   display: flex;
   flex-direction: column;
@@ -411,7 +411,7 @@ body {
   }
 }
 
-/* 极简线条分区 — 顶部横线 + 左侧竖线贯穿全部分区（参考 smallcase） */
+/* Minimal line sections — top rule + left rule through all sections (smallcase ref) */
 .open-home-line {
   position: relative;
   padding: 1.75rem 0 0.5rem;
@@ -537,7 +537,7 @@ body {
   }
 }
 
-/* Work 案例展示 — 整体居中，内容左对齐，宽度由 mockup 行决定 */
+/* Work showcase — centered block, left-aligned content, width from mockup row */
 .work-showcase-stage {
   display: inline-flex;
   max-width: 100%;
@@ -1045,7 +1045,7 @@ body {
   object-position: top center;
 }
 
-/* 前景卡左下对齐，后层向右上叠出 */
+/* Front card bottom-left aligned, rear layers stack up-right */
 .stacked-card-cycle-card--0 {
   z-index: 3;
   left: 0;
@@ -1407,7 +1407,7 @@ body {
   object-position: top center;
 }
 
-/* 弹窗弹出 / 收起动效 mockup */
+/* Popup open/close motion mockup */
 .popup-motion-screen {
   position: relative;
   overflow: hidden;
@@ -1509,7 +1509,7 @@ body {
   }
 }
 
-/* 自动轮播 mockup — 渐隐切换 */
+/* Auto-cycle mockup — crossfade switch */
 .auto-cycle-screen {
   position: relative;
 }
@@ -1872,7 +1872,7 @@ body {
     #141312;
 }
 
-/* 16:9 宽屏 mockup */
+/* 16:9 widescreen mockup */
 .widescreen-mockup {
   grid-column: 1 / -1;
   width: 100%;
@@ -2042,7 +2042,7 @@ body {
   background: #ececef;
 }
 
-/* —— 屏幕内 Safari 风格浏览器 mockup —— */
+/* —— in-screen Safari-style browser mockup —— */
 .macbook-mockup-browser {
   display: flex;
   flex-direction: column;
@@ -2239,7 +2239,7 @@ body {
   word-break: break-all;
 }
 
-/* Hand phone mockup — mockup2 撑高 + 长图叠层 */
+/* Hand phone mockup — mockup2 sets height + long image overlay */
 .hand-phone-mockup {
   grid-column: 1 / -1;
   width: 100%;
@@ -2259,12 +2259,12 @@ body {
   z-index: 1;
   overflow: hidden;
   pointer-events: none;
-  /* phone mockup for scroll — 透明屏幕孔 229,36 + 841×1774 */
+  /* phone mockup for scroll — transparent screen cutout 229,36 + 841×1774 */
   top: 1.23%;
   left: 13.191%;
   width: 48.445%;
   height: 60.608%;
-  /* 841×1774 画布内圆角 ~80px → 与 mockup 屏幕弧角对齐 */
+  /* ~80px corner radius in 841×1774 canvas, aligned to mockup screen curve */
   border-radius: 9.5% / 4.5%;
 }
 
@@ -2395,7 +2395,7 @@ body {
   overflow: visible;
 }
 
-/* 倾斜 iPhone — 3D 透视展示长图 */
+/* Angled iPhone — 3D perspective long image */
 .work-showcase-angled-phone {
   display: flex;
   justify-content: center;
@@ -2649,7 +2649,7 @@ body {
   line-height: 1.1;
 }
 
-/* 整行字距随开场逐渐拉大（与逐字 stagger 同步） */
+/* Row letter-spacing widens with intro (synced to per-letter stagger) */
 @keyframes hero-track-expand {
   0% {
     letter-spacing: 0.02em;
@@ -2669,7 +2669,7 @@ body {
   animation-fill-mode: both;
 }
 
-/* Open-style letter reveal — blur + rise + 单字间距渐开 */
+/* Open-style letter reveal — blur + rise + per-letter spacing widen */
 @keyframes hero-char-in {
   0% {
     opacity: 0;
@@ -2735,7 +2735,7 @@ body {
   border: 0;
 }
 
-/* —— 效果 2：打字机 —— */
+/* —— Effect 2: typewriter —— */
 .typing-canvas {
   --typing-bg: #f7f4ef;
   --typing-ink: #1c1917;
@@ -2745,7 +2745,7 @@ body {
   --typing-other-fade: 1.5s;
   --typing-pull-fade: 3s;
   --typing-pull-ease: cubic-bezier(0.42, 0, 0.18, 1);
-  /* 背景与 sifan 字色：等其他文字渐隐后再同步变色，时长与拉开渐隐一致 */
+  /* background and sifan color: sync after other text fades, duration matches pull fade */
   --typing-invert-drift: var(--typing-pull-fade);
   --typing-invert-delay: var(--typing-other-fade);
   --typing-ease: cubic-bezier(0.42, 0, 0.18, 1);
@@ -2773,7 +2773,7 @@ body {
   gap: 0.35em;
 }
 
-/* Sifan 始终在画面水平中心，前缀绝对定位在左侧，展开时不触发布局变化 */
+/* Sifan stays horizontally centered; prefix absolutely positioned left; expand does not reflow layout */
 .typewriter-line-keep {
   display: flex;
   justify-content: center;
@@ -2847,7 +2847,7 @@ body {
   will-change: transform, opacity, letter-spacing;
 }
 
-/* sifan 匀速拉开（统一字距）→ 两侧渐隐，全程 2s */
+/* sifan pulls apart at constant tracking → sides fade, 2s total */
 @keyframes typing-keep-track-pull {
   0% {
     letter-spacing: 0.04em;
@@ -2902,7 +2902,7 @@ body {
   --char-drift-x: 1em;
 }
 
-/* 页眉 sifan */
+/* Header sifan */
 .site-header-brand {
   display: inline-block;
   font-family: var(--open-font-sans);
@@ -3068,7 +3068,7 @@ body {
 }
 
 /* ============================================================
-   Playground — 封面驱动的 bento 网格
+   Playground — cover-driven bento grid
    ============================================================ */
 
 .pg-stage {
@@ -3150,7 +3150,7 @@ body {
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* —— Claim Medal（Figma 652:2 勋章点亮流程） —— */
+/* —— Claim Medal (Figma 652:2 medal reveal flow) —— */
 .pg-medal-stage {
   display: flex;
   align-items: center;
@@ -3183,7 +3183,7 @@ body {
   pointer-events: none;
 }
 
-/* —— 交互 mockup 全屏页（Figma 652:44） —— */
+/* —— Interactive mockup full-screen page (Figma 652:44) —— */
 .pg-medal-mockup-page {
   position: fixed;
   inset: 0;
@@ -3324,7 +3324,7 @@ body {
   animation: pg-lightbox-zoom 380ms var(--open-ease);
 }
 
-/* Figma 652:44 三屏画板 */
+/* Figma 652:44 three-screen board */
 .pg-medal-mockup-page__content {
   position: relative;
   z-index: 1;
@@ -3381,7 +3381,7 @@ body {
   width: 15.5rem;
 }
 
-/* 652:5 灰浮雕（Figma relief-base-gray，与 popup 背景融合） */
+/* 652:5 gray relief (Figma relief-base-gray, blends with popup bg) */
 .pg-medal-static-medal {
   position: absolute;
   top: calc(97 / 764 * 100%);
@@ -3397,7 +3397,7 @@ body {
   z-index: 0;
 }
 
-/* 擦除笔刷光标 — 与 RELIEF_V1_BRUSH_RADIUS 视觉对齐 */
+/* Eraser brush cursor — aligned to RELIEF_V1_BRUSH_RADIUS */
 .pg-medal-mockup-device:has(.pg-medal-figma-popup[data-scene='interactive']) {
   --pg-medal-brush-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='36' fill='none' stroke='rgba(0%2C0%2C0%2C0.22)' stroke-width='1.5'/%3E%3C/svg%3E")
     40 40,
@@ -3415,7 +3415,7 @@ body {
   pointer-events: auto;
 }
 
-/* 652:27 模糊背景 */
+/* 652:27 blurred background */
 .pg-medal-showcase-bg {
   position: absolute;
   top: calc(-12 / 764 * 100%);
@@ -3445,7 +3445,7 @@ body {
   object-fit: contain;
   pointer-events: none;
   z-index: 1;
-  /* 裁切为圆形，避免素材边缘残留白底 */
+  /* clip to circle to avoid white edge bleed on assets */
   clip-path: circle(50% at 50% 50%);
 }
 
@@ -3464,7 +3464,7 @@ body {
   transition: transform 120ms ease;
 }
 
-/* 手机 mockup — 仅 popup 卡片（Figma 652:4，无顶部灰条） */
+/* Phone mockup — popup card only (Figma 652:4, no top gray bar) */
 .pg-medal-mockup-device {
   position: relative;
   width: 100%;

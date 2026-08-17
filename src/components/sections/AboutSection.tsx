@@ -32,23 +32,24 @@ export function AboutSection({ cardLayout = false }: Props) {
           className="open-card flex aspect-[4/5] max-w-sm items-center justify-center text-sm text-ink-muted"
           aria-label="Portrait placeholder"
         >
-          头像 / 照片
+          Portrait / photo
           <br />
           public/portfolio/about/
         </div>
         <div>
           {!cardLayout && (
             <SectionHeading
-              eyebrow="03 — 自我介绍"
+              eyebrow="03 — About me"
               title="About"
-              subtitle="我是 Sifan Pan，产品设计师，关注增长、转化与复杂功能的教育化表达。"
+              subtitle="I'm Sifan Pan, a product designer focused on growth, conversion, and making complex features easy to adopt."
             />
           )}
           <p className={`open-desc text-base leading-relaxed text-ink${cardLayout ? '' : ' mt-6'}`}>
-            我擅长把商业目标、用户行为和产品能力放进同一条叙事里：从活动与会员设计，到高曝光位与激励视觉，再到新功能的上手引导。
-            这个站点 v2 把 <strong className="font-medium text-ink">AI Playground</strong>、
-            <strong className="font-medium text-ink"> Works </strong>
-            和自我介绍分成三块，方便你快速了解我的实验方向与正式案例。
+            I connect business goals, user behavior, and product capabilities in one narrative—from
+            campaigns and membership to high-visibility surfaces and onboarding.
+            This v2 site splits <strong className="font-medium text-ink">AI Playground</strong>,{' '}
+            <strong className="font-medium text-ink">Works</strong>, and About into three sections
+            so you can quickly explore experiments and case studies.
           </p>
           <ul className="mt-8 space-y-3">
             {highlights.map((line) => (
@@ -63,7 +64,7 @@ export function AboutSection({ cardLayout = false }: Props) {
               href="mailto:hello@example.com"
               className="inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
             >
-              联系我
+              Contact me
             </a>
             <a
               href="https://github.com/446500261psf"

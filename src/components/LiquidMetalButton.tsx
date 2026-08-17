@@ -4,7 +4,7 @@ import { useLiquidMetalLight } from '../hooks/useLiquidMetalLight'
 type Props = {
   children: ReactNode
   className?: string
-  /** 由父级 stage 提供 --lg-* 变量 */
+  /** parent stage provides --lg-* variables */
   inheritLight?: boolean
 }
 

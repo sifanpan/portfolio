@@ -2,7 +2,7 @@ import { CinematicLetters, cinematicEndTime } from './CinematicLetters'
 
 const SIFAN = 'sifan'
 
-/** Open 式开场：逐字显现 Sifan，再副文案 */
+/** Open-style intro: reveal Sifan letter by letter, then tagline */
 const fullNameEnd = cinematicEndTime(SIFAN.length)
 const taglineDelay = fullNameEnd + 0.35
 const subtitleDelay = taglineDelay + 1.0

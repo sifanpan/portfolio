@@ -1,6 +1,7 @@
 Lifecycle & Marketing Campaigns
 
-活动长图请放入子文件夹：
-  campaign-scroll/01.png
+Place campaign long-scroll images in:
 
-详见 campaign-scroll/README.txt
+  campaign-scroll/
+
+See campaign-scroll/README.txt for details.

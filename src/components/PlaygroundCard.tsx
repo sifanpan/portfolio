@@ -2,12 +2,13 @@ import { useMemo, useState, type CSSProperties } from 'react'
 import type { PlaygroundItem } from '../data/playground'
 import { publicUrl } from '../publicUrl'
 import { ClaimMedalDemo } from './playground/ClaimMedalDemo'
+import { PlanCoachBento } from './playground/PlanCoachDemo'
 
 type Props = {
   item: PlaygroundItem
 }
 
-/** 12 列网格下的横向跨度，宽图占更多列 */
+/** horizontal span on 12-column grid; wide images take more columns */
 function columnSpan(aspectRatio: number): number {
   if (aspectRatio >= 1.85) return 8
   if (aspectRatio >= 1.35) return 6
@@ -16,6 +17,7 @@ function columnSpan(aspectRatio: number): number {
 
 const DEMO_SPAN: Partial<Record<string, number>> = {
   'claim-medal': 4,
+  'plan-coach': 4,
 }
 
 export function PlaygroundCard({ item }: Props) {
@@ -27,6 +29,11 @@ export function PlaygroundCard({ item }: Props) {
         gridColumn: `span ${DEMO_SPAN[item.id] ?? 4}`,
         aspectRatio: '1 / 1',
         maxWidth: '12rem',
+      }
+    }
+    if (item.demo === 'plan-coach') {
+      return {
+        gridColumn: `span ${DEMO_SPAN[item.id] ?? 4}`,
       }
     }
     if (!aspectRatio) return undefined
@@ -52,7 +59,11 @@ export function PlaygroundCard({ item }: Props) {
     )
   }
 
-  // 必须走 publicUrl：Pages 部署在 /sifan.pan.v2/ 子路径下，写死的 /portfolio/… 会 404
+  if (item.demo === 'plan-coach') {
+    return <PlanCoachBento item={item} style={style} />
+  }
+
+  // must use publicUrl: Pages deploys under /sifan.pan.v2/ subpath; hardcoded /portfolio/… 404s
   const cover = publicUrl(item.cover!)
 
   const tile = (

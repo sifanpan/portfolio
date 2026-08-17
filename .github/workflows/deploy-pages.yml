@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    # 默认分支是 v2.1；main 保留以便旧链接仍可触发部署
+    # Default branch is v2.1; main kept so legacy links still trigger deploy
     branches: [v2.1, main, master]
   workflow_dispatch:
 

@@ -3,7 +3,7 @@ import { publicUrl } from '../publicUrl'
 type Props = {
   base: string
   popup: string
-  /** 弹窗占屏幕高度比例（0–1） */
+  /** popup height as fraction of screen (0–1) */
   popupHeightRatio: number
   alt: string
   rev?: string

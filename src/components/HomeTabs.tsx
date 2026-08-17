@@ -38,7 +38,7 @@ function TabIcon({ name }: { name: (typeof tabs)[number]['icon'] }) {
   return null
 }
 
-/** 外侧边缘高光 + 内侧暗角 vignette(鼠标侧微亮) */
+/** outer edge highlight + inner vignette (slightly brighter on mouse side) */
 function EdgeRim({ bright = false }: { bright?: boolean }) {
   const mod = bright ? ' home-tab-edge--bright' : ''
   return (
@@ -57,7 +57,7 @@ type Indicator = {
 
 const orientationRad = (x: number, y: number) => Math.atan2(x - 50, -(y - 50))
 
-/** 沿边框切线方向的椭圆光斑:中心最亮,两端对称渐暗 */
+/** elliptical spot along border tangent: brightest at center, symmetric falloff */
 const buildSpotGradient = (
   gx: number,
   gy: number,
@@ -91,7 +91,7 @@ const buildInnerSpot = (mx: number, my: number) => {
   return `radial-gradient(ellipse ${w}% ${h}% at ${mx.toFixed(2)}% ${my.toFixed(2)}%, ${stops})`
 }
 
-/** 峰值锚点 → 按钮中心,峰值最亮、中心最暗 */
+/** peak anchor → button center; peak brightest, center darkest */
 const buildPeakToCenterBeam = (gx: number, gy: number) => {
   const toCenterX = 50 - gx
   const toCenterY = 50 - gy
@@ -118,7 +118,7 @@ const buildPeakToCenterBeam = (gx: number, gy: number) => {
 }
 
 /**
- * 仅在当前选中 tab 上追踪光影;鼠标移到其他 tab 时渐暗并冻结角度。
+ * Track light only on the active tab; dim and freeze angle when hovering other tabs.
  */
 function useEdgeLight(
   trackRef: RefObject<HTMLDivElement | null>,
@@ -187,7 +187,7 @@ function useEdgeLight(
       track.style.setProperty('--lg-inner-beam', buildPeakToCenterBeam(gx, gy))
     }
 
-    /** 中心→鼠标方向,与 pill 椭圆边界求交 → 百分比(无角度跳变) */
+    /** center → mouse direction, intersect pill ellipse → percentage (no angle jump) */
     const edgeGlowFromMouse = (rect: DOMRect, x: number, y: number) => {
       const cx = rect.left + rect.width / 2
       const cy = rect.top + rect.height / 2
@@ -284,7 +284,7 @@ function useEdgeLight(
       return
     }
 
-    // 刷新后鼠标已在 tab 上但未产生 pointermove 时,用 :hover 补一次采样
+    // after refresh, mouse may already be on tab without pointermove — sample via :hover
     if (track?.matches(':hover')) {
       const index = tabs.findIndex((t) => t.id === active)
       const btn = tabRefs.current[index]

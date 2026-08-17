@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "frozenAt": "2026-06-13",
-  "description": "单色米白浮雕 + 右上主光 + 橡皮擦揭示 base + 拖尾溶解",
+  "description": "Monochrome off-white relief + top-right key light + eraser reveal base + trail dissolve",
   "background": "#f2f2ee",
   "relief": {
     "lightDir": [0.44, -0.38, 0.84],

@@ -12,9 +12,9 @@ import { WorksSection } from './sections/WorksSection'
 
 type Props = {
   variant: 'typing' | 'cinematic'
-  /** 页眉 sifan 逐字向下瞬移 */
+  /** header sifan letters drop in one by one */
   brandReveal?: boolean
-  /** 字母转场后，主页内容自上而下渐现 */
+  /** after letter transition, home content fades in top to bottom */
   contentReveal?: boolean
 }
 

@@ -58,7 +58,7 @@ export const buildPeakToCenterBeam = (gx: number, gy: number) => {
   )
 }
 
-/** 中心→指针方向,与 pill 椭圆边界求交 → 百分比 */
+/** center → pointer direction, intersect pill ellipse → percentage */
 export const edgeGlowFromPointer = (rect: DOMRect, x: number, y: number) => {
   const cx = rect.left + rect.width / 2
   const cy = rect.top + rect.height / 2

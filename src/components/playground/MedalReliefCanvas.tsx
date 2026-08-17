@@ -25,16 +25,16 @@ type MedalReliefCanvasProps = {
 }
 
 export type MedalReliefHandle = {
-  /** flow 模式：悬停坐标擦除（无需按住） */
+  /** flow mode: erase on hover coordinates (no press required) */
   paintHover: (clientX: number, clientY: number) => void
 }
 
-/** 流程弹层内勋章尺寸 — Figma 652:5 300px in 402×764 popup */
+/** medal size inside flow popup — Figma 652:5 300px in 402×764 popup */
 const FLOW_MEDAL_SCALE: MedalScale = { ratio: 300 / 402, maxPx: 9999 }
-/** Bento 内尽量铺满 */
+/** fill bento tile as much as possible */
 const BENTO_MEDAL_SCALE: MedalScale = { ratio: 0.92, maxPx: 480 }
 
-/** 勋章区域平均揭示率 + 高覆盖像素占比，达到后进入背景擦拭 */
+/** avg medal reveal + high-coverage pixel ratio; triggers background wipe when met */
 const MEDAL_UNLOCK_AVG = 0.76
 const MEDAL_UNLOCK_PIXEL = 0.58
 const MEDAL_UNLOCK_COVERAGE = 0.88
@@ -44,7 +44,7 @@ const TAP_MOVE_PX = 14
 
 type MedalRect = { left: number; top: number; w: number; h: number }
 
-/** Figma 652:5 — 勋章圆心区域（402×764 popup 坐标系） */
+/** Figma 652:5 — medal center region (402×764 popup coords) */
 const FLOW_FIGMA_MEDAL_RECT: MedalRect = {
   left: 51 / 402,
   top: 97 / 764,
@@ -505,7 +505,7 @@ export const MedalReliefCanvas = forwardRef<MedalReliefHandle, MedalReliefCanvas
 
       const decayReveals = () => {
         if (reduced) return
-        // flow mockup 悬停擦除：痕迹保留，避免 80ms 消退导致“必须按住才有效”
+        // flow mockup hover erase: keep strokes; avoid 80ms fade making "must hold" feel required
         if (variantRef.current === 'flow') return
         if (performance.now() - lastPaintRef.current < RELIEF_V1_DECAY_PAUSE_MS) return
         const currentPhase = variantRef.current === 'bento' ? 'wipe-medal' : phaseRef.current
@@ -562,7 +562,7 @@ export const MedalReliefCanvas = forwardRef<MedalReliefHandle, MedalReliefCanvas
         )
       }
 
-      /** flow 第一屏：鼠标悬停滑过即可擦除，无需按住 */
+      /** flow screen 1: hover to erase, no press required */
       const isFlowHoverPaint = () =>
         variantRef.current === 'flow' && phaseRef.current !== 'unlocked'
 

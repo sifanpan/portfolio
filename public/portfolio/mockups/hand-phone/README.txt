@@ -1,19 +1,19 @@
-Hand Phone Mockup — 素材说明
+Hand Phone Mockup — asset guide
 
-请把以下文件放在本文件夹：
+Place these files in this folder:
 
-  mockup-overlay.png
-    手拿手机 mockup 贴图（PNG，透明底）。
-    手机屏幕区域应为透明，长图从下方透出；手、边框、阴影保留在贴图上。
+  phone mockup for scroll.png
+    hand-phone mockup texture (PNG, transparent background).
+    Screen area should be transparent so the long image shows through; hand, bezel, and shadow stay on the texture.
 
-  screen-mask.png
-    屏幕蒙版（PNG，黑白图）。
-    白色 = 可见区域，黑色 = 裁切掉。用于精确贴合非矩形屏幕。
+  frame new.png
+    screen mask (PNG, black and white).
+    White = visible, black = clipped. Used for precise non-rectangular screen fit.
 
-  mockup.png（可选）
-    完整参考图，方便对齐屏幕 inset，不参与页面渲染。
+  mockup.png (optional)
+    full reference for aligning screen inset; not rendered on the page.
 
-屏幕 inset（长图显示区域）在 src/components/HandPhoneMockup.tsx 顶部常量中调整：
-  SCREEN_INSET = { top, right, bottom, left }  // 百分比
+Screen inset (long image display area) is adjusted via constants at the top of src/components/HandPhoneMockup.tsx:
+  SCREEN_INSET = { top, right, bottom, left }  // percentages
 
-替换 mockup 后更新 HandPhoneMockup.tsx 里的 MOCKUP_REV 以刷新缓存。
+Bump MOCKUP_REV in HandPhoneMockup.tsx after replacing the mockup to refresh cache.

@@ -6,9 +6,9 @@ type Props = {
   alt: string
   rev?: string
   empty?: boolean
-  /** 纵向滚动长图 */
+  /** vertically scrollable long image */
   scroll?: boolean
-  /** lightbox 内立即加载长图 */
+  /** eager-load long image inside lightbox */
   eager?: boolean
 }
 

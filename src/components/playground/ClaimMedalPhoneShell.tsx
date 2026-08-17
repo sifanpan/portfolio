@@ -14,7 +14,7 @@ type Props = {
   onSceneMouseMove?: (e: MouseEvent<HTMLDivElement>) => void
 }
 
-/** Figma 652:3 — 单台手机外框 + popup chrome */
+/** Figma 652:3 — single phone frame + popup chrome */
 export function ClaimMedalPhoneShell({
   scene,
   sceneMode = 'static',

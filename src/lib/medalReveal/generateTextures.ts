@@ -57,7 +57,7 @@ function imageCoverCanvas(img: HTMLImageElement, size: number) {
   return canvas
 }
 
-/** 优先加载 public/playground/medal/ 下的 PS 素材 */
+/** prefer PS assets under public/playground/medal/ */
 export async function loadMedalTextures(): Promise<MedalTextures> {
   const [baseImg, normalImg, heightImg, backgroundImg] = await Promise.all([
     loadImage(MEDAL_BASE_URL),

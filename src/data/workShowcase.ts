@@ -3,21 +3,21 @@ export type WorkExposureCase = {
   description: string
   layout: 'hero' | 'module'
   screen?: WorkScreen
-  /** hero：左侧环境光背景图 */
+  /** hero: ambient light background on the left */
   backgroundLight?: WorkScreen
-  /** module：右上大图 */
+  /** module: large image top-right */
   featureScreen?: WorkScreen
-  /** module：右上叠卡轮播（morning / noon / night），替代 featureScreen */
+  /** module: stacked card carousel (morning / noon / night), replaces featureScreen */
   featureStackScreens?: WorkScreen[]
-  /** module：底部 user journey（左图 + 右文案） */
+  /** module: user journey at bottom (image left + copy right) */
   journey?: {
     title: string
     description: string
     screen: WorkScreen
   }
-  /** @deprecated 使用 journey */
+  /** @deprecated use journey */
   journeyScreen?: WorkScreen
-  /** module：底部用户流（带箭头连接） */
+  /** module: user flow at bottom (with arrow connectors) */
   flowScreens?: WorkScreen[]
   backgroundScreens?: WorkScreen[]
   rowScreens?: WorkScreen[]
@@ -25,27 +25,27 @@ export type WorkExposureCase = {
 
 export type WorkScreen = {
   alt: string
-  /** 替换素材后递增，避免浏览器缓存旧图 */
+  /** bump after asset swap to bust browser cache */
   rev?: string
   kind?: 'image' | 'video' | 'auto-cycle' | 'empty' | 'popup-motion'
-  /** popup-motion：底层页面 */
+  /** popup-motion: base page layer */
   base?: string
-  /** popup-motion：弹窗层 */
+  /** popup-motion: popup layer */
   popup?: string
-  /** popup-motion：弹窗高度占屏比例 */
+  /** popup-motion: popup height as fraction of screen */
   popupHeightRatio?: number
   file?: string
-  /** auto-cycle 时轮播的图片路径 */
+  /** image paths for auto-cycle carousel */
   slides?: string[]
-  /** widescreen mockup 内纵向滚动长图 */
+  /** vertically scrollable long image inside widescreen mockup */
   scroll?: boolean
-  /** 活动切换按钮文案 */
+  /** campaign switch button label */
   label?: string
-  /** 活动主题色（切换按钮背景） */
+  /** campaign theme color (switch button background) */
   themeColor?: string
-  /** 切换该 screen 时显示的副标题文案 */
+  /** subtitle shown when this screen is active */
   description?: string
-  /** MacBook 地址栏 URL（缺省由 alt 生成） */
+  /** MacBook address bar URL (defaults from alt) */
   pageUrl?: string
 }
 
@@ -56,7 +56,7 @@ export type WorkBentoPlacement = {
   rowSpan: number
 }
 
-/** Figma 画板内绝对定位（px） */
+/** absolute position within Figma frame (px) */
 export type WorkBentoFrameRect = {
   x: number
   y: number
@@ -71,21 +71,21 @@ export type WorkBentoFrame = {
 
 export type WorkBentoItem = {
   id: string
-  /** Bento 网格封面 */
+  /** Bento grid cover */
   banner: string
-  /** 点击后展示的长图；无则仅展示 banner */
+  /** long image on click; banner only if omitted */
   longImage?: string
   alt: string
   rev?: string
-  /** 封面宽高比，避免加载前格子比例错误 */
+  /** cover aspect ratio to avoid wrong cell size before load */
   aspectRatio?: number
-  /** PC 端 12 列网格定位 */
+  /** 12-column grid placement on desktop */
   placement?: WorkBentoPlacement
-  /** Figma 画板内绝对定位 */
+  /** absolute position within Figma frame */
   frame?: WorkBentoFrameRect
-  /** 重叠时的叠放顺序 */
+  /** z-order when overlapping */
   zIndex?: number
-  /** 封面图在容器内的对齐（配合 object-fit: cover） */
+  /** cover alignment in container (with object-fit: cover) */
   objectPosition?: string
 }
 
@@ -98,25 +98,25 @@ export type WorkProfile = {
 export type WorkProject = {
   id: string
   title: string
-  /** 同一主标题下的分组 id */
+  /** group id under the same main title */
   groupId?: string
-  /** 分组内后续 case 不重复显示主标题 */
+  /** hide main title on subsequent cases in the group */
   hideTitle?: boolean
-  /** 项目小标题（可选） */
+  /** optional project subtitle */
   subtitle?: string
   description: string
-  /** 单个宽屏 / MacBook / 倾斜 iPhone / 手拿手机 / Bento 网格 mockup */
+  /** single widescreen / MacBook / angled iPhone / hand phone / Bento grid mockup */
   mockupLayout?: 'widescreen' | 'macbook' | 'angled-phone' | 'hand-phone' | 'bento'
-  /** split：mockup 左栏 + 标题/描述右栏底对齐 */
+  /** split: mockup left + title/description right, bottom-aligned */
   panelLayout?: 'split' | 'exposure'
-  /** exposure 布局：多段 case（Figma 草稿） */
+  /** exposure layout: multi-segment cases (Figma draft) */
   exposureCases?: WorkExposureCase[]
   screens?: WorkScreen[]
-  /** bento 布局：banner 网格 + 长图 */
+  /** bento layout: banner grid + long images */
   bentoItems?: WorkBentoItem[]
-  /** bento Figma 画板尺寸（配合 item.frame 使用） */
+  /** bento Figma frame size (used with item.frame) */
   bentoFrame?: WorkBentoFrame
-  /** 第二行 mockup（可选） */
+  /** optional second mockup row */
   screensRow2?: WorkScreen[]
 }
 
@@ -132,7 +132,7 @@ const CAMPAIGN_THEME_COLORS = [
   '#BDB0A2',
 ] as const
 
-/** 06 — 华沙半马活动，已从展示中移除 */
+/** 06 — Warsaw half-marathon campaign, removed from showcase */
 const CAMPAIGN_SCROLL_FILES = ['01', '02', '03', '04', '05', '07', '08', '09', '10'] as const
 
 function campaignScrollScreens(rev: string): WorkScreen[] {
@@ -169,8 +169,8 @@ function handPhoneScreens(rev: string): WorkScreen[] {
   ]
 }
 
-const EDUCATION_BENTO_BASE = 'portfolio/project-3/Bento图'
-const EDUCATION_LONG_BASE = 'portfolio/project-3/长图'
+const EDUCATION_BENTO_BASE = 'portfolio/project-3/bento-banners'
+const EDUCATION_LONG_BASE = 'portfolio/project-3/long-scrolls'
 
 /** Figma node 15657:106 — Frame 106 */
 export const EDUCATION_BENTO_FRAME: WorkBentoFrame = {
@@ -178,11 +178,11 @@ export const EDUCATION_BENTO_FRAME: WorkBentoFrame = {
   height: 1367,
 }
 
-/** Banner 文件名 → 长图路径；无长图 / 复活节勋章 / VIP 方图返回 undefined */
+/** Map banner filename to long-scroll path; no scroll / easter medal / VIP square return undefined */
 function bannerToLongImage(bannerFile: string): string | undefined {
   if (
-    bannerFile.includes('无长图') ||
-    bannerFile === '复活节勋章.png' ||
+    bannerFile.includes('no-long-scroll') ||
+    bannerFile === 'easter-medal.png' ||
     bannerFile === 'VIP.png'
   ) {
     return undefined
@@ -191,7 +191,7 @@ function bannerToLongImage(bannerFile: string): string | undefined {
   const match = bannerFile.match(/^(?:Banner|banner)\s+(.+)$/i)
   if (!match) return undefined
 
-  return `${EDUCATION_LONG_BASE}/长图 ${match[1]}`
+  return `${EDUCATION_LONG_BASE}/long-scroll ${match[1]}`
 }
 
 function educationBentoItems(rev: string): WorkBentoItem[] {
@@ -218,9 +218,9 @@ function educationBentoItems(rev: string): WorkBentoItem[] {
   return [
     item('get-most', 'Banner get most.png', 'Get the most from your watch', { x: 0, y: 0, width: 489, height: 284 }, 1905 / 1107),
     item('quicko', 'VIP.png', 'Quicko — 20% promotion', { x: 508, y: 0, width: 242, height: 251 }, 459 / 477),
-    item('active-rings-color', 'Banner 无长图.png', 'Active Rings — colorful overview', { x: 0, y: 299, width: 488, height: 274 }, 2688 / 1512),
+    item('active-rings-color', 'Banner no-long-scroll.png', 'Active Rings — colorful overview', { x: 0, y: 299, width: 488, height: 274 }, 2688 / 1512),
     item('quicko-wide', 'Banner Quicko.png', 'Quicko — Double Tap and Pay', { x: 0, y: 587, width: 489, height: 145 }, 2688 / 1152, undefined, 'left center'),
-    item('active-rings-wide', 'Banner 无长图-1.png', 'Active Rings — feature overview', { x: 511, y: 469, width: 618, height: 267 }, 2742 / 1175),
+    item('active-rings-wide', 'Banner no-long-scroll-1.png', 'Active Rings — feature overview', { x: 511, y: 469, width: 618, height: 267 }, 2742 / 1175),
     item('multipass', 'Banner Multipass.png', 'Multipass feature guidance', { x: 0, y: 750, width: 673, height: 199 }, 2688 / 796),
     item('what-is-new', 'Banner what is new.png', 'What is new guidance', { x: 688, y: 750, width: 442, height: 199 }, 1509 / 678),
     item('pro-level', 'banner pro level.png', 'Pro-level outdoor sports guidance', { x: 0, y: 964, width: 321, height: 401 }, 1333 / 1662),
@@ -229,7 +229,7 @@ function educationBentoItems(rev: string): WorkBentoItem[] {
     item('ecg', 'banner ECG.png', 'ECG measurement guidance', { x: 336, y: 1173, width: 327, height: 192 }, 1296 / 760),
     item('d2', 'Banner D2.png', 'D2 feature guidance', { x: 678, y: 1173, width: 453, height: 194 }, 2688 / 1152),
     item('smart-training', 'Banner Smart training.png', 'Smart training guidance', { x: 767, y: 4, width: 361, height: 451 }, 1330 / 1661, 2),
-    item('easter-medal', '复活节勋章.png', 'Easter medal campaign', { x: 528, y: 259, width: 201, height: 201 }, 440 / 440, 3),
+    item('easter-medal', 'easter-medal.png', 'Easter medal campaign', { x: 528, y: 259, width: 201, height: 201 }, 440 / 440, 3),
   ]
 }
 
@@ -239,7 +239,7 @@ export const workProfile: WorkProfile = {
   period: '2024 — 2026, Düsseldorf',
 }
 
-/** V1 顺序：Monetization → Growth → Education */
+/** V1 order: Monetization → Growth → Education */
 export const workProjects: WorkProject[] = [
   {
     id: 'monetization',

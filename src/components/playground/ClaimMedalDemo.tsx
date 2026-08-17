@@ -5,7 +5,7 @@ import { ClaimMedalMockupBoard } from './ClaimMedalMockupBoard'
 
 const BENTO_COVER = '/playground/medal/bento1.png'
 
-/** Bento：静态封面；点击打开 Figma 652:44 三屏 mockup 画板 */
+/** Bento: static cover; click opens Figma 652:44 three-screen mockup board */
 export function ClaimMedalDemo() {
   const [open, setOpen] = useState(false)
 

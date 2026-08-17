@@ -51,7 +51,7 @@ void main() {
   vec3 halfDir = normalize(lightDir + viewDir);
   float spec = pow(max(dot(nmap, halfDir), 0.0), 48.0);
 
-  // 揭示层：彩色 base + 动态金属光（雕版由 DOM 层 relief-base.png 承担）
+  // reveal layer: color base + dynamic metal sheen (engraving handled by DOM relief-base.png)
   vec3 metal = base * (0.22 + diff * 0.78) + vec3(spec * 0.95);
 
   float revealMix = smoothstep(0.02, 0.22, reveal);
@@ -67,7 +67,7 @@ void main() {
 }
 `
 
-/** 单色浅浮雕 + 橡皮擦揭示 base（样式 v1 → relief-style-v1/） */
+/** monochrome relief + eraser reveal base (style v1 → relief-style-v1/) */
 export const RELIEF_ERASE_FRAG = `#version 300 es
 precision highp float;
 
@@ -120,7 +120,7 @@ void main() {
     return;
   }
 
-  // 高度场 → 柔和体积法线（渐变，非线稿）
+  // height field → soft volumetric normals (gradient, not line art)
   float spread = 3.0;
   float hL = texture(uHeight, muv - vec2(uTexel.x * spread, 0.0)).r;
   float hR = texture(uHeight, muv + vec2(uTexel.x * spread, 0.0)).r;

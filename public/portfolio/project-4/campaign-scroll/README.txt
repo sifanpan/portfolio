@@ -1,10 +1,10 @@
-Lifecycle & Marketing Campaigns — 活动长图
+Lifecycle & Marketing Campaigns — campaign long-scrolls
 
-当前 10 张长图，展示 01–05、07–10（06 华沙半马已下线）：
+Currently 10 long images, showing 01–05 and 07–10 (06 Warsaw half-marathon removed):
 
   01.png … 10.png
 
-展示时会在 16:9 宽屏 mockup 内按 mockup 宽度等比缩放（width: 100%），可上下滚动浏览。
+Displayed inside a 16:9 widescreen mockup, scaled to mockup width (width: 100%), vertically scrollable.
 
-按钮文案 / 主题色在 src/data/workShowcase.ts 的 campaignScrollScreens 中配置。
-替换素材后更新 rev 以刷新缓存。
+Button labels / theme colors: configure in src/data/workShowcase.ts → campaignScrollScreens.
+Bump rev after replacing assets to refresh cache.
