@@ -182,6 +182,7 @@ export const EDUCATION_BENTO_FRAME: WorkBentoFrame = {
 function bannerToLongImage(bannerFile: string): string | undefined {
   if (
     bannerFile.includes('no-long-scroll') ||
+    bannerFile === 'easter-rabbit.png' ||
     bannerFile === 'easter-medal.png' ||
     bannerFile === 'VIP.png'
   ) {
@@ -229,7 +230,7 @@ function educationBentoItems(rev: string): WorkBentoItem[] {
     item('ecg', 'banner ECG.png', 'ECG measurement guidance', { x: 336, y: 1173, width: 327, height: 192 }, 1296 / 760),
     item('d2', 'Banner D2.png', 'D2 feature guidance', { x: 678, y: 1173, width: 453, height: 194 }, 2688 / 1152),
     item('smart-training', 'Banner Smart training.png', 'Smart training guidance', { x: 767, y: 4, width: 361, height: 451 }, 1330 / 1661, 2),
-    item('easter-medal', 'easter-medal.png', 'Easter medal campaign', { x: 528, y: 259, width: 201, height: 201 }, 440 / 440, 3),
+    item('easter-medal', 'easter-rabbit.png', 'Easter medal campaign', { x: 528, y: 259, width: 201, height: 201 }, 440 / 440, 3),
   ]
 }
 
@@ -407,6 +408,6 @@ export const workProjects: WorkProject[] = [
     description:
       'Design in-app descriptions of product features and explanations of membership benefits tailored to different usage scenarios',
     bentoFrame: EDUCATION_BENTO_FRAME,
-    bentoItems: educationBentoItems('20250616'),
+    bentoItems: educationBentoItems('20260818'),
   },
 ]
