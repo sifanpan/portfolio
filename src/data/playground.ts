@@ -17,7 +17,7 @@ export const playgroundItems: PlaygroundItem[] = [
     title: 'Cove Watch — Comfort Field',
     cover: 'portfolio/cove-watch/cover.png',
     // interactive device simulator: shape studio / 3D wireframe / front preview / full interaction
-    href: 'https://446500261psf.github.io/portfolio/simulator/',
+    href: 'https://sifanpan.github.io/portfolio/simulator/',
   },
   {
     id: 'claim-medal',

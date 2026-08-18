@@ -1,6 +1,8 @@
-# sifan.pan.v2
+# portfolio
 
-Sifan Pan portfolio v2 — React + TypeScript + Vite + Tailwind CSS v4.
+Sifan Pan portfolio — React + TypeScript + Vite + Tailwind CSS v4.
+
+Production: <https://sifanpan.github.io/portfolio/>
 
 ## Local development
 
@@ -11,26 +13,20 @@ npm run dev
 
 Default: <http://localhost:5175/>
 
-## Build & preview
+## Build & preview (GitHub Pages subpath)
 
 ```bash
-npm run build
-npx vite preview
+BASE_PATH=/portfolio/ npm run build
+BASE_PATH=/portfolio/ npx vite preview
 ```
 
-Production site: <https://www.sifan.portfolio/>
+## GitHub setup (one-time)
 
-## Deploy to GitHub Pages
-
-1. Push to `main` — the **Deploy to GitHub Pages** workflow builds with `BASE_PATH=/`.
-2. In the repo **Settings → Pages → Custom domain**, enter `www.sifan.portfolio` and enable **Enforce HTTPS** once DNS is live.
-3. At your domain registrar, add a DNS record:
-
-   | Type  | Name | Value                 |
-   |-------|------|-----------------------|
-   | CNAME | www  | `446500261psf.github.io` |
-
-   Optional: redirect apex `sifan.portfolio` → `www.sifan.portfolio` (registrar-dependent).
+1. **Change username** to `sifanpan`: GitHub → Settings → Account → Change username.
+2. **Rename this repo** to `portfolio`: Settings → General → Repository name.
+   - If a `portfolio` repo already exists (e.g. Cove simulator), rename or merge it first.
+3. **Pages**: Settings → Pages → Source = **GitHub Actions**; remove any custom domain.
+4. Push to `main` — CI sets `BASE_PATH=/<repo-name>/` automatically.
 
 ## Directory layout
 

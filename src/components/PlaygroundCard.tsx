@@ -63,7 +63,7 @@ export function PlaygroundCard({ item }: Props) {
     return <PlanCoachBento item={item} style={style} />
   }
 
-  // must use publicUrl: Pages deploys under /sifan.pan.v2/ subpath; hardcoded /portfolio/… 404s
+  // must use publicUrl: Pages deploys under /portfolio/ subpath; hardcoded /portfolio/… 404s
   const cover = publicUrl(item.cover!)
 
   const tile = (

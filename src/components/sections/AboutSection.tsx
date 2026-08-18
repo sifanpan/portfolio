@@ -67,7 +67,7 @@ export function AboutSection({ cardLayout = false }: Props) {
               Contact me
             </a>
             <a
-              href="https://github.com/446500261psf"
+              href="https://github.com/sifanpan"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex rounded-full border border-white/10 bg-surface px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-white/20"
