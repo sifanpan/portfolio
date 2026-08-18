@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 
 type Props = {
@@ -20,6 +21,14 @@ export function IphoneMockup({ src, alt, rev, empty, scroll, eager }: Props) {
   const [missing, setMissing] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const isVideo = Boolean(src && !empty && isVideoSrc(src))
+  const url =
+    src && !empty
+      ? rev
+        ? `${publicUrl(src)}?v=${encodeURIComponent(rev)}`
+        : publicUrl(src)
+      : undefined
+  const videoRef = useInlineVideo(url, isVideo && !missing)
 
   const updateScrollProgress = useCallback(() => {
     const el = scrollRef.current
@@ -52,20 +61,19 @@ export function IphoneMockup({ src, alt, rev, empty, scroll, eager }: Props) {
     )
   }
 
-  const url = rev ? `${publicUrl(src)}?v=${encodeURIComponent(rev)}` : publicUrl(src)
-  const isVideo = isVideoSrc(src)
-
   const media = missing ? (
     <div className="iphone-mockup-placeholder">
       <span>{src.split('/').pop()}</span>
     </div>
   ) : isVideo ? (
     <video
+      ref={videoRef}
       src={url}
       autoPlay
       loop
       muted
       playsInline
+      preload="auto"
       aria-label={alt}
       onError={() => setMissing(true)}
     />

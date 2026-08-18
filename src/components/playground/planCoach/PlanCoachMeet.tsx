@@ -288,7 +288,12 @@ export function PlanCoachMeet({ compact = false, interactive = false }: MeetProp
   const hiP = ramp(introT, HI_START, HI_END)
   const coachP = ramp(introT, COACH_START, COACH_END)
   const tip = ramp(introT, TIP_START, TIP_START + 0.136)
-  const chrome = inChat ? 1 : ramp(introT, CHROME_START, CHROME_END)
+  // Compact bento loops the intro; chrome must stay visible so the composer
+  // does not vanish every cycle. Lightbox still fades chrome in once.
+  const chrome = compact || inChat ? 1 : ramp(introT, CHROME_START, CHROME_END)
+  const chromeStyle = compact
+    ? undefined
+    : { opacity: chrome, transform: `translateY(${12 * (1 - chrome)}px)` }
   const hiText = introT >= HI_END ? PLAN_COACH_HI : typed(PLAN_COACH_HI, hiP)
   const coachText = introT >= COACH_END ? PLAN_COACH_SUB : typed(PLAN_COACH_SUB, coachP)
 
@@ -323,7 +328,7 @@ export function PlanCoachMeet({ compact = false, interactive = false }: MeetProp
         <span>100%</span>
       </div>
 
-      <header className="pg-pc-topbar" style={{ opacity: chrome, transform: `translateY(${12 * (1 - chrome)}px)` }}>
+      <header className="pg-pc-topbar" style={chromeStyle}>
         <span className="pg-pc-topbar__back" aria-hidden="true">
           ←
         </span>
@@ -376,7 +381,7 @@ export function PlanCoachMeet({ compact = false, interactive = false }: MeetProp
 
       <form
         className="pg-pc-composer"
-        style={{ opacity: chrome, transform: `translateY(${12 * (1 - chrome)}px)` }}
+        style={chromeStyle}
         onSubmit={onSubmit}
         aria-hidden={compact || undefined}
       >

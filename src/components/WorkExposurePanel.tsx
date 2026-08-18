@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { WorkExposureCase, WorkProject, WorkScreen } from '../data/workShowcase'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 import { StackedCardCycle } from './StackedCardCycle'
 
@@ -9,13 +10,17 @@ function isVideoFile(file: string): boolean {
 
 function ExposureHeroMedia({ screen }: { screen: WorkScreen }) {
   const [missing, setMissing] = useState(false)
+  const url = screen.file
+    ? screen.rev
+      ? `${publicUrl(screen.file)}?v=${encodeURIComponent(screen.rev)}`
+      : publicUrl(screen.file)
+    : undefined
+  const isVideo = Boolean(
+    screen.file && (screen.kind === 'video' || isVideoFile(screen.file)),
+  )
+  const videoRef = useInlineVideo(url, isVideo && !missing)
 
-  if (!screen.file) return null
-
-  const url = screen.rev
-    ? `${publicUrl(screen.file)}?v=${encodeURIComponent(screen.rev)}`
-    : publicUrl(screen.file)
-  const isVideo = screen.kind === 'video' || isVideoFile(screen.file)
+  if (!screen.file || !url) return null
 
   if (missing) {
     return (
@@ -26,6 +31,7 @@ function ExposureHeroMedia({ screen }: { screen: WorkScreen }) {
   if (isVideo) {
     return (
       <video
+        ref={videoRef}
         className="work-exposure-hero-video"
         src={url}
         autoPlay

@@ -1,13 +1,22 @@
 .pg-pc-meet {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
   width: 100%;
   height: 100%;
+  min-height: 0;
   overflow: hidden;
   background: linear-gradient(180deg, #f1f9fb 0%, #f8f7f6 100%);
   color: #111827;
   font-family: Nunito, 'Instrument Sans', sans-serif;
+}
+
+.pg-pc-bento .pg-pc-meet,
+.pg-pc-lightbox__phone > .pg-pc-meet {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
 }
 
 .pg-pc-meet.is-compact {
@@ -30,13 +39,13 @@
 }
 
 .pg-pc-meet.is-compact .pg-pc-body {
-  flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
+.pg-pc-meet.is-compact:not(.is-chat) .pg-pc-chips,
 .pg-pc-meet.is-compact:not(.is-chat) .pg-pc-chips--slot {
   display: none;
   height: 0;
@@ -69,7 +78,7 @@
 }
 
 .pg-pc-meet.is-compact .pg-pc-composer {
-  flex-shrink: 0;
+  z-index: 2;
   padding: 0.35rem 0.65rem 0.55rem;
 }
 
@@ -142,7 +151,6 @@
 }
 
 .pg-pc-body {
-  flex: 1;
   min-height: 0;
   overflow: auto;
 }
@@ -256,7 +264,7 @@
 }
 
 .pg-pc-composer {
-  flex-shrink: 0;
+  z-index: 1;
   padding: 0.7rem 1rem 1rem;
 }
 
@@ -655,7 +663,9 @@
 }
 
 .pg-pc-lightbox__phone {
-  width: min(390px, 92vw);
+  position: relative;
+  /* Shrink width when viewport is short so aspect-ratio is not clipped at the bottom. */
+  width: min(390px, 92vw, calc(min(82vh, 764px) * 402 / 764));
   aspect-ratio: 402 / 764;
   max-height: min(82vh, 764px);
   height: auto;

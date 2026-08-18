@@ -47,7 +47,7 @@ export function PlanCoachBento({ item, style }: BentoProps) {
       <article
         className="pg-bento pg-bento--demo pg-bento--plan-coach pg-pc-bento-tile"
         data-pg={item.id}
-        style={style}
+        style={{ ...style, aspectRatio: '402 / 764' }}
         aria-label={item.title}
       >
         <div className="pg-stage pg-pc-bento" aria-hidden="true">

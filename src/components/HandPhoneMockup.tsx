@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 
 const MOCKUP_OVERLAY = 'portfolio/project-5/hand-phone-scroll/phone mockup for scroll.png'
@@ -19,7 +20,6 @@ export function HandPhoneMockup({ src, alt, rev, scroll }: Props) {
   const [missing, setMissing] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   const updateScrollProgress = useCallback(() => {
     const el = scrollRef.current
@@ -35,6 +35,7 @@ export function HandPhoneMockup({ src, alt, rev, scroll }: Props) {
     : undefined
   const isVideo = src ? isVideoSrc(src) : false
   const overlaySrc = `${publicUrl(MOCKUP_OVERLAY)}?v=${MOCKUP_REV}`
+  const videoRef = useInlineVideo(url, isVideo && !scroll && !missing)
 
   useEffect(() => {
     setMissing(false)
@@ -42,23 +43,11 @@ export function HandPhoneMockup({ src, alt, rev, scroll }: Props) {
     scrollRef.current?.scrollTo({ top: 0 })
   }, [src, rev])
 
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video || scroll || !isVideo) return
-
-    const play = () => {
-      void video.play().catch(() => {})
-    }
-    video.addEventListener('canplay', play)
-    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) play()
-    return () => video.removeEventListener('canplay', play)
-  }, [url, scroll, isVideo])
-
   return (
     <div className="hand-phone-mockup">
       <div className="hand-phone-mockup-device">
         <div
-          className={`hand-phone-mockup-screen${scroll ? ' hand-phone-mockup-screen--scroll' : ''}`}
+          className={`hand-phone-mockup-screen${scroll ? ' hand-phone-mockup-screen--scroll' : ''}${isVideo ? ' hand-phone-mockup-screen--video' : ''}`}
           aria-hidden={missing && !!src}
         >
           {!src ? null : missing ? (

@@ -261,7 +261,7 @@ export const workProjects: WorkProject[] = [
         rev: '20250606',
       },
       {
-        file: 'portfolio/project-1/03 video.mov',
+        file: 'portfolio/project-1/03-video.mp4',
         alt: 'Black Friday seasonal promotion assets',
       },
     ],

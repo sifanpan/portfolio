@@ -1551,6 +1551,8 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .iphone-mockup-scroll::-webkit-scrollbar {
@@ -1845,6 +1847,21 @@ body {
     grid-row: auto !important;
     aspect-ratio: var(--tile-ar, 1.75);
   }
+
+  .work-bento-lightbox {
+    padding: max(0.75rem, env(safe-area-inset-top)) 0.75rem max(0.75rem, env(safe-area-inset-bottom));
+  }
+
+  .work-bento-lightbox-inner {
+    width: min(100%, 22rem);
+    max-height: min(88svh, 44rem);
+    --mockup-w: min(86vw, 22rem);
+  }
+
+  .work-bento-lightbox-close {
+    top: 0.15rem;
+    right: 0.15rem;
+  }
 }
 
 .iphone-mockup-placeholder {
@@ -1913,6 +1930,8 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .widescreen-mockup-scroll::-webkit-scrollbar {
@@ -2183,6 +2202,8 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   background: #fff;
 }
 
@@ -2268,7 +2289,8 @@ body {
   border-radius: 9.5% / 4.5%;
 }
 
-.hand-phone-mockup-screen--scroll {
+.hand-phone-mockup-screen--scroll,
+.hand-phone-mockup-screen--video {
   pointer-events: auto;
 }
 
@@ -2290,6 +2312,8 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .hand-phone-mockup-scroll::-webkit-scrollbar {
@@ -2527,6 +2551,8 @@ body {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .angled-phone-mockup-scroll::-webkit-scrollbar {
@@ -3333,7 +3359,8 @@ body {
   justify-content: center;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pg-medal-mockup-page__dismiss {
@@ -3842,5 +3869,30 @@ body {
     grid-column: 1 / -1 !important;
     width: min(62vw, 12rem);
     max-width: 12rem;
+  }
+
+  .pg-bento-label {
+    opacity: 0.85;
+    transform: none;
+  }
+
+  .pg-medal-mockup-page {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: max(3.5rem, env(safe-area-inset-top)) 0 max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .pg-medal-mockup-page__content {
+    justify-content: flex-start;
+  }
+
+  .pg-medal-mockup-board {
+    transform: none;
+    padding-inline: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .pg-medal-mockup-board .pg-medal-mockup-device {
+    width: min(72vw, 15.5rem);
   }
 }

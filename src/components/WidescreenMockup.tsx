@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 
 type Props = {
@@ -31,6 +32,14 @@ export function WidescreenMockup({ src, alt, rev, scroll }: Props) {
     scrollRef.current?.scrollTo({ top: 0 })
   }, [src, rev])
 
+  const url = src
+    ? rev
+      ? `${publicUrl(src)}?v=${encodeURIComponent(rev)}`
+      : publicUrl(src)
+    : undefined
+  const isVideo = src ? isVideoSrc(src) : false
+  const videoRef = useInlineVideo(url, isVideo && !scroll && !missing)
+
   if (!src) {
     return (
       <div className="widescreen-mockup" aria-hidden>
@@ -43,9 +52,6 @@ export function WidescreenMockup({ src, alt, rev, scroll }: Props) {
     )
   }
 
-  const url = rev ? `${publicUrl(src)}?v=${encodeURIComponent(rev)}` : publicUrl(src)
-  const isVideo = isVideoSrc(src)
-
   return (
     <div className="widescreen-mockup" aria-hidden={missing}>
       <div className="widescreen-mockup-bezel">
@@ -56,11 +62,13 @@ export function WidescreenMockup({ src, alt, rev, scroll }: Props) {
             </div>
           ) : isVideo ? (
             <video
+              ref={videoRef}
               src={url}
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               aria-label={alt}
               onError={() => setMissing(true)}
             />

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 
 type Props = {
@@ -37,6 +38,7 @@ export function AngledPhoneMockup({ src, alt, rev, scroll }: Props) {
       : publicUrl(src)
     : undefined
   const isVideo = src ? isVideoSrc(src) : false
+  const videoRef = useInlineVideo(url, isVideo && !scroll && !missing)
 
   return (
     <div className="angled-phone-mockup" aria-hidden={missing && !!src}>
@@ -81,11 +83,13 @@ export function AngledPhoneMockup({ src, alt, rev, scroll }: Props) {
                   </>
                 ) : isVideo ? (
                   <video
+                    ref={videoRef}
                     src={url}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     aria-label={alt}
                     onError={() => setMissing(true)}
                   />

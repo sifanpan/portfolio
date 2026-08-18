@@ -1,4 +1,5 @@
 import { useCallback, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
+import { useInlineVideo } from '../lib/useInlineVideo'
 import { publicUrl } from '../publicUrl'
 
 const MOCKUP_OVERLAY = 'portfolio/mockups/macbook-pro-14/mockup-overlay.png'
@@ -87,6 +88,7 @@ export function MacBookMockup({ src, alt, rev, scroll, pageUrl }: Props) {
       : publicUrl(src)
     : undefined
   const isVideo = src ? isVideoSrc(src) : false
+  const videoRef = useInlineVideo(url, isVideo && !scroll && !missing)
   const frameSrc = `${publicUrl(MOCKUP_OVERLAY)}?v=${MOCKUP_REV}`
   const barUrl = pageUrl ?? pageUrlFromAlt(alt)
 
@@ -132,11 +134,13 @@ export function MacBookMockup({ src, alt, rev, scroll, pageUrl }: Props) {
     if (isVideo) {
       return (
         <video
+          ref={videoRef}
           src={url}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           aria-label={alt}
           onError={() => setMissing(true)}
         />
